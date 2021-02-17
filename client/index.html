@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Negociações</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+
+</head>
+
+<body class="container">
+
+    <h1 class="text-center">Negociações</h1>
+    <div id="mensagemView"></div>
+    <form class="form" onsubmit="negociacaocontroller.adiciona(event)">
+
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" class="form-control" required autofocus />
+        </div>
+
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input type="number" min="1" step="1" id="quantidade" class="form-control" value="1" required />
+        </div>
+
+        <div class="form-group">
+            <label for="valor">Valor</label>
+            <input id="valor" type="number" class="form-control" min="0.01" step="0.01" value="0.0" required />
+        </div>
+
+        <button class="btn btn-primary" type="submit">Incluir</button>
+    </form>
+
+    <div class="text-center">
+        <button class="btn btn-primary text-center" type="button">
+            Importar Negociações
+        </button>
+        <button class="btn btn-primary text-center" type="button">
+            Apagar
+        </button>
+    </div>
+    <br>
+    <br>
+
+    <div id="negociacoesView"></div>
+    <script src="js/app/models/Negociacao.js"></script>
+    <script src="js/app/controllers/NegociacaoController.js"></script>
+    <script src="js/app/helpers/DateHelper.js"></script>
+    <script src="js/app/models/ListaNegociacoes.js"></script>
+    <script src="js/app/models/Mensagem.js"></script>
+    <script src="js/app/views/View.js"></script>
+    <script src="js/app/views/NegociacoesView.js"></script>
+    <script src="js/app/views/MensagemView.js"></script>
+    <script>
+        let negociacaocontroller = new NegociacaoController();
+    </script>
+    <!-- <script>
+        const hoje = new Date();
+      
+        const n1 = new Negociacao(hoje, 5, 700);
+        console.log(n1.Data);
+        hoje.setDate(12);
+        console.log(n1.Data);
+        console.log("Data:", n1.Data);
+        console.log("Quantidade:", n1.Quantidade);
+        console.log("Valor:", n1.Valor);
+        console.log("Volume:", n1.Volume);
+
+
+        // const n2 = new Negociacao(new Date(), 10, 800);
+        // console.log("Data:", n2.Data);
+        // console.log("Quantidade:", n2.Quantidade);
+        // console.log("Valor:", n2.Valor);
+        // console.log("Volume:", n2.Volume);
+
+    </script> -->
+</body>
+
+</html>
